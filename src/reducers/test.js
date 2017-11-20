@@ -29,4 +29,28 @@ describe('Reducer', () => {
     });
   });
 
+  describe('Delete a Todo', () => {
+
+    it('Should return the correct state after Delete', () =>{
+      const action = {
+        type: types.DELETE_TODO,
+        id: 1
+      };
+      
+      const startingState = {
+        todos: [
+          {
+            id: 1,
+            text: todoText,
+          },
+        ],
+      };
+
+
+      const expectedState = {
+          todos: [],
+        };
+      expect(reducer(startingState, action)).toEqual(expectedState);
+    });
+  });
 });
