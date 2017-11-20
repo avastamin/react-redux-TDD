@@ -7,7 +7,6 @@ export const initialState = {
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case types.SUBMIT_TODO:
-        console.log(action);
       return {
         ...state,
         todos: [
