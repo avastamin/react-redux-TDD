@@ -16,14 +16,16 @@ describe('TodoList component', () => {
   const props = {
       todos: [
         {
-          id: 1,
+          id: 'b1yyu6mx',
           text: 'A todo',
         },
       ],
       deleteTodo: deleteMock,
     };
 
-  const component = shallow(<TodoList todos={...props} />);
+    const { todos, deleteTodo } = props;
+
+  const component = shallow(<TodoList todos={todos} deleteTodo= {deleteTodo} />);
 
   it('Should render successfully', () => {
       expect(component.exists()).toEqual(true);

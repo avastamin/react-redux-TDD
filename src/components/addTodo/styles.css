@@ -1,0 +1,26 @@
+.form-wrapper {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: 10px;
+}
+.todo-input {
+    border: none;
+    width: 75%;
+    padding: 10px;
+    float: left;
+    font-size: 16px;
+}
+
+.todo-submit {
+    padding: 10px;
+    width: 21%;
+    background: #d9d9d9;
+    color: #555;
+    border: none;
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}

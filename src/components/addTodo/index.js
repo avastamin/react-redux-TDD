@@ -1,12 +1,13 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import './styles.css';
 
 const AddTodo = ({ submitTodo }) => {
   let input;
 
   return (
-    <div>
+    <div className="form-wrapper">
       <form
         onSubmit={(event) => {
           event.preventDefault();

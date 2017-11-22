@@ -1,17 +1,29 @@
 import types from '../constants/'
-
-let todoId = 0;
-
-const nextId = () => {
-  todoId += 1;
-  return todoId;
-};
+import * as todoAPI from '../utils/todosAPI';
 
 const actions = {
-  submitTodo(text) {
+
+  fetchPostsRequest() {
+    return {
+    type: "FETCH_REQUEST"
+    }
+  },
+   fetchPostsSuccess(payload) {
+    return {
+      type: "FETCH_SUCCESS",
+      payload
+    }
+  },
+  fetchPostsError() {
+    return {
+      type: "FETCH_ERROR"
+    }
+  },
+
+  submitTodo(id,text) {
     return {
       type: types.SUBMIT_TODO,
-      id: nextId(),
+      id,
       text,
     };
   },
@@ -20,7 +32,19 @@ const actions = {
       type: types.DELETE_TODO,
       id: id
     }
+  },
+  fetchPostsWithRedux() {
+  	return (dispatch) => {
+    	dispatch(this.fetchPostsRequest());
+      return todoAPI.getAll().then((response) =>{
+        dispatch(this.fetchPostsSuccess(response))
+        console.log(response);
+    }).catch(error => {
+      dispatch(this.fetchPostsError())
+      console.log(error);
+    });
   }
+}
 };
 
 export default actions;

@@ -6,6 +6,10 @@ export const initialState = {
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case types.FETCH_REQUEST:
+      return state;
+    case types.FETCH_SUCCESS:
+      return {...state, todos: action.payload};
     case types.SUBMIT_TODO:
       return {
         ...state,
@@ -15,7 +19,6 @@ export const reducer = (state = initialState, action) => {
             id: action.id,
             text: action.text,
           }
-
         ],
       }
     case types.DELETE_TODO:

@@ -1,6 +1,9 @@
 const types = {
   SUBMIT_TODO: 'SUBMIT_TODO',
   DELETE_TODO: 'DELETE_TODO',
+  FETCH_REQUEST: 'FETCH_REQUEST',
+  FETCH_SUCCESS: 'FETCH_SUCCESS',
+  FETCH_ERROR: 'FETCH_ERROR',
 };
 
 export default types;
